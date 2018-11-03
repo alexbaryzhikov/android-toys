@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.stericson.roottools">
+
+    <application>
+        <activity android:name=".SanityCheckRootShell" />
+        <activity android:name=".SanityCheckRootTools" />
+    </application>
+
+</manifest>
