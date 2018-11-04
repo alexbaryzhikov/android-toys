@@ -16,7 +16,18 @@ class MainActivity : ScopedAppActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
 
+    private fun logException() {
+        try {
+            val a = 10/0
+        } catch (th: Throwable) {
+            Log.w(TAG, "[Message]", th)
+            Log.w(TAG, "[Message]\n$th\n${th.stackTrace.fold("") {acc, element -> "$acc    at $element\n" } }")
+        }
+    }
+
+    private fun fireCoroutine() {
         launch {
             Log.i(TAG, "CoroutineName: ${coroutineContext[CoroutineName]}")
             Log.i(TAG, "ContinuationInterceptor: ${coroutineContext[ContinuationInterceptor]}")
