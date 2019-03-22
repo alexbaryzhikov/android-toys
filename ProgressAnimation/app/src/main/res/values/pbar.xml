@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Names -->
+    <string name="pBar">PBar</string>
+    <string name="circle0">circle0</string>
+    <string name="circle1">circle1</string>
+    <string name="circle2">circle2</string>
+    <string name="circle3">circle3</string>
+    <string name="circle4">circle4</string>
+
+    <!-- Geometry -->
+    <integer name="viewport_width">24</integer>
+    <integer name="viewport_height">24</integer>
+    <integer name="viewport_center_x">12</integer>
+    <integer name="viewport_center_y">12</integer>
+
+    <string name="path_c0">
+        M 3.75,12
+        A 0,0 0 0 1 3.75,12
+        A 0,0 0 0 1 3.75,12
+        A 0,0 0 0 1 3.75,12
+        A 0,0 0 0 1 3.75,12
+        Z
+    </string>
+    <string name="path_c1">
+        M 5.75,12
+        A 2,2 0 0 1 3.75,14
+        A 2,2 0 0 1 1.75,12
+        A 2,2 0 0 1 3.75,10
+        A 2,2 0 0 1 5.75,12
+        Z
+    </string>
+    <string name="path_c2">
+        M 15,12
+        A 3,3 0 0 1 12,15
+        A 3,3 0 0 1 9,12
+        A 3,3 0 0 1 12,9
+        A 3,3 0 0 1 15,12
+        Z
+    </string>
+    <string name="path_c3">
+        M 22.25,12
+        A 2,2 0 0 1 20.25,14
+        A 2,2 0 0 1 18.25,12
+        A 2,2 0 0 1 20.25,10
+        A 2,2 0 0 1 22.25,12
+        Z
+    </string>
+    <string name="path_c4">
+        M 20.25,12
+        A 0,0 0 0 1 20.25,12
+        A 0,0 0 0 1 20.25,12
+        A 0,0 0 0 1 20.25,12
+        A 0,0 0 0 1 20.25,12
+        Z
+    </string>
+
+    <!-- Drawing -->
+    <color name="fill_color">#00aa88</color>
+
+    <!-- Timing -->
+    <integer name="duration">600</integer>
+
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="@integer/viewport_width"
+    android:viewportHeight="@integer/viewport_height">
+
+    <group
+        android:name="@string/pBar"
+        android:pivotX="@integer/viewport_center_x"
+        android:pivotY="@integer/viewport_center_y">
+
+        <path
+            android:name="@string/circle0"
+            android:fillColor="@color/fill_color"
+            android:pathData="@string/path_c0" />
+
+        <path
+            android:name="@string/circle1"
+            android:fillColor="@color/fill_color"
+            android:pathData="@string/path_c1" />
+
+        <path
+            android:name="@string/circle2"
+            android:fillColor="@color/fill_color"
+            android:pathData="@string/path_c2" />
+
+        <path
+            android:name="@string/circle3"
+            android:fillColor="@color/fill_color"
+            android:pathData="@string/path_c3" />
+
+    </group>
+
+</vector>
