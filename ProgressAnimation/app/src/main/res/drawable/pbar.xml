@@ -3,33 +3,61 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="120dp"
     android:height="120dp"
-    android:viewportWidth="@integer/viewport_width"
-    android:viewportHeight="@integer/viewport_height">
+    android:viewportWidth="24"
+    android:viewportHeight="24">
 
     <group
         android:name="@string/pBar"
-        android:pivotX="@integer/viewport_center_x"
-        android:pivotY="@integer/viewport_center_y">
+        android:pivotX="12"
+        android:pivotY="12">
 
         <path
-            android:name="@string/circle0"
-            android:fillColor="@color/fill_color"
-            android:pathData="@string/path_c0" />
+            android:name="circle0"
+            android:fillColor="#00aa88"
+            android:pathData="
+                M 3.75,12
+                A 0,0 0 0 1 3.75,12
+                A 0,0 0 0 1 3.75,12
+                A 0,0 0 0 1 3.75,12
+                A 0,0 0 0 1 3.75,12
+                Z
+           " />
 
         <path
-            android:name="@string/circle1"
-            android:fillColor="@color/fill_color"
-            android:pathData="@string/path_c1" />
+            android:name="circle1"
+            android:fillColor="#00aa88"
+            android:pathData="
+                M 5.75,12
+                A 2,2 0 0 1 3.75,14
+                A 2,2 0 0 1 1.75,12
+                A 2,2 0 0 1 3.75,10
+                A 2,2 0 0 1 5.75,12
+                Z
+            " />
 
         <path
-            android:name="@string/circle2"
-            android:fillColor="@color/fill_color"
-            android:pathData="@string/path_c2" />
+            android:name="circle2"
+            android:fillColor="#00aa88"
+            android:pathData="
+                M 15,12
+                A 3,3 0 0 1 12,15
+                A 3,3 0 0 1 9,12
+                A 3,3 0 0 1 12,9
+                A 3,3 0 0 1 15,12
+                Z
+            " />
 
         <path
-            android:name="@string/circle3"
-            android:fillColor="@color/fill_color"
-            android:pathData="@string/path_c3" />
+            android:name="circle3"
+            android:fillColor="#00aa88"
+            android:pathData="
+                M 22.25,12
+                A 2,2 0 0 1 20.25,14
+                A 2,2 0 0 1 18.25,12
+                A 2,2 0 0 1 20.25,10
+                A 2,2 0 0 1 22.25,12
+                Z
+            " />
 
     </group>
 
