@@ -1,4 +1,4 @@
-package alexbaryzhikov.ru.progressanimation
+package ru.alexbaryzhikov.progressanimation
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle

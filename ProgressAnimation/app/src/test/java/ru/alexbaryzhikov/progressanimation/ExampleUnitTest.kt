@@ -1,4 +1,4 @@
-package alexbaryzhikov.ru.progressanimation
+package ru.alexbaryzhikov.progressanimation
 
 import org.junit.Test
 
