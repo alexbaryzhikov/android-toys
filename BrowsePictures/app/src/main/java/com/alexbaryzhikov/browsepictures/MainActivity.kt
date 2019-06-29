@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val uri: Uri
             if (data != null) {
-                uri = data.data
+                uri = data.data!!
                 Log.i(javaClass.simpleName, "Uri: $uri")
                 showImage(uri)
             }
