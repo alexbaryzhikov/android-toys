@@ -12,12 +12,21 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import ru.abaryzhikov.messengerservice.App.Companion.CHANNEL_ID
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MessengerService : Service() {
 
     private lateinit var messenger: Messenger
 
+    override fun onCreate() {
+        super.onCreate()
+        Log.v(TAG, "onCreate() called")
+        messenger = Messenger(MessageHandler(this))
+    }
+
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Log.v(TAG, "onStartCommand() called")
         val notificationIntent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0)
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
@@ -31,15 +40,20 @@ class MessengerService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? {
         Log.v(TAG, "onBind() called")
-        messenger = Messenger(MessageHandler(this))
         return messenger.binder
     }
 
     class MessageHandler(private val context: Context) : Handler() {
+
+        private val timeFormat = SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault())
+        private val time: String
+            get() = timeFormat.format(Date(System.currentTimeMillis()))
+
         override fun handleMessage(msg: Message?) {
+            Log.v(TAG, "handleMessage() called")
             when (msg?.what) {
                 MSG_GET_TIMESTAMP ->
-                    Toast.makeText(context, "t = System.currentTimeMillis()", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "t = $time", Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -2,13 +2,11 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ru.abaryzhikov.messengerservice">
+    package="ru.abaryzhikov.messengerserviceclient">
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <permission android:name="ru.abaryzhikov.messengerservice.BIND_SERVICE" />
+    <uses-permission android:name="ru.abaryzhikov.messengerservice.BIND_SERVICE" />
 
     <application
-        android:name=".App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,19 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".MainActivity"
-            android:launchMode="singleInstance">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service
-            android:name=".MessengerService"
-            android:exported="true"
-            android:permission="ru.abaryzhikov.messengerservice.BIND_SERVICE" />
     </application>
 
 </manifest>
