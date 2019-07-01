@@ -24,6 +24,11 @@ class MessengerService : Service() {
         return messenger.binder
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.v(TAG, "onDestroy() called")
+    }
+
     class MessageHandler(private val context: Context) : Handler() {
 
         private val timeFormat = SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault())
