@@ -11,9 +11,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var messenger: Messenger? = null
+    private var serviceMessenger: Messenger? = null
     private var bound: Boolean = false
     private val connection = MessengerServiceConnection()
+    private val incomingMessenger = Messenger(IncomingHandler { callbackView.text = it })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,38 +40,48 @@ class MainActivity : AppCompatActivity() {
         if (bound) {
             unbindService(connection)
             bound = false
-            callbackView.text = "Disconnected"
+            callbackView.text = getString(R.string.disconnected)
         }
     }
 
     private fun askTimestamp() {
         if (!bound) return
         val msg: Message = Message.obtain(null, MSG_GET_TIMESTAMP, 0, 0)
+        msg.replyTo = incomingMessenger
         try {
-            messenger?.send(msg)
+            serviceMessenger?.send(msg)
         } catch (e: RemoteException) {
             Log.e(TAG, "Can't send message", e)
+        }
+    }
+
+    class IncomingHandler(private val receiver: (String?) -> Unit) : Handler() {
+        override fun handleMessage(msg: Message?) {
+            when (msg?.what) {
+                MSG_GET_TIMESTAMP -> receiver((msg.obj as Bundle).getString(TIMESTAMP_KEY))
+                else -> super.handleMessage(msg)
+            }
         }
     }
 
     inner class MessengerServiceConnection : ServiceConnection {
 
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            messenger = Messenger(service)
+            serviceMessenger = Messenger(service)
             bound = true
-            callbackView.text = "Connected"
+            callbackView.text = getString(R.string.connected)
         }
 
         override fun onServiceDisconnected(name: ComponentName?) {
-            messenger = null
+            serviceMessenger = null
             bound = false
-            callbackView.text = "Disconnected"
+            callbackView.text = getString(R.string.disconnected)
         }
     }
 
     companion object {
         private const val TAG = "MainActivity"
         private const val MSG_GET_TIMESTAMP = 1
-        private const val BIND_SERVICE_PERMISSION = "ru.abaryzhikov.messengerservice.BIND_SERVICE"
+        private const val TIMESTAMP_KEY = "Timestamp"
     }
 }
