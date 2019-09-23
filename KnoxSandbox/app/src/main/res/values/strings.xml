@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">KnoxSandbox</string>
+
+    <!-- Knox license -->
+    <string name="no_intent">No intent available</string>
+    <string name="no_intent_action">No intent action available</string>
+    <string name="klm_activated_successfully">License activated successfully</string>
+    <string name="err_klm_internal">Internal error</string>
+    <string name="err_klm_internal_server">Server internal error</string>
+    <string name="err_klm_license_invalid_license">Invalid license</string>
+    <string name="err_klm_invalid_package_name">Invalid package name</string>
+    <string name="err_klm_license_terminated">License terminated</string>
+    <string name="err_klm_network_disconnected">Network disconnected</string>
+    <string name="err_klm_network_general">Network error</string>
+    <string name="err_klm_not_current_date">Not current date</string>
+    <string name="err_klm_null_params">Null params</string>
+    <string name="err_klm_unknown">Unknown error</string>
+    <string name="err_klm_user_disagrees_license_agreement">User rejected agreement</string>
+    <string name="err_klm_code_unknown">Unknown error code %1$s, status %2$s</string>
+</resources>
