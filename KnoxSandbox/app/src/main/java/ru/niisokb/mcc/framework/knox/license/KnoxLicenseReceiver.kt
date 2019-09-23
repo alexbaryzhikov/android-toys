@@ -1,12 +1,12 @@
-package ru.niisokb.mcc.knox.license
+package ru.niisokb.mcc.framework.knox.license
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import android.widget.Toast
 import com.samsung.android.knox.license.KnoxEnterpriseLicenseManager.*
 import ru.niisokb.mcc.R
+import ru.niisokb.mcc.framework.utils.showToast
 
 class KnoxLicenseReceiver : BroadcastReceiver() {
 
@@ -106,14 +106,6 @@ class KnoxLicenseReceiver : BroadcastReceiver() {
             802 -> "DEACTIVATION"
             else -> throw IllegalArgumentException("Unknown result type: $type")
         }
-    }
-
-    private fun showToast(context: Context, msgRes: Int) {
-        Toast.makeText(context, context.resources.getString(msgRes), Toast.LENGTH_SHORT).show()
-    }
-
-    private fun showToast(context: Context, msg: String) {
-        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
     companion object {

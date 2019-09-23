@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">KnoxSandbox</string>
 
+    <!-- Admin -->
+    <string name="admin">Admin</string>
+    <string name="activate_admin">Activate admin</string>
+    <string name="admin_enabled">Admin enabled</string>
+    <string name="deactivate_admin">Deactivate admin</string>
+    <string name="admin_disabled">Admin disabled</string>
+    <string name="admin_disable_failed">Admin disable failed</string>
+
     <!-- Knox license -->
+    <string name="license">License</string>
+    <string name="activate_license">Activate license</string>
+    <string name="license_progress">License activation in progress</string>
+    <string name="license_failed">License activation failed</string>
     <string name="no_intent">No intent available</string>
     <string name="no_intent_action">No intent action available</string>
     <string name="klm_activated_successfully">License activated successfully</string>
@@ -17,4 +29,6 @@
     <string name="err_klm_unknown">Unknown error</string>
     <string name="err_klm_user_disagrees_license_agreement">User rejected agreement</string>
     <string name="err_klm_code_unknown">Unknown error code %1$s, status %2$s</string>
+
+    <string name="refresh_status">Refresh status</string>
 </resources>

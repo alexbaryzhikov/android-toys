@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ru.niisokb.mcc">
 
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_APP_MGMT" />
+
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -12,18 +14,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".knox.license.KnoxLicenseReceiver" >
+
+        <receiver
+            android:name=".framework.admin.AdminReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="ru.niisokb.mcc.framework.knox.license.KnoxLicenseReceiver">
             <intent-filter>
                 <action android:name="com.samsung.android.knox.intent.action.LICENSE_STATUS" />
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>
