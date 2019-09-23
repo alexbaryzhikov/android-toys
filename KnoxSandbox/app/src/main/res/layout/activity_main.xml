@@ -85,20 +85,31 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/activate_license"
-        app:layout_constraintBottom_toTopOf="@id/refreshStatus"
+        app:layout_constraintBottom_toTopOf="@id/refreshStatusButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/deactivateAdminButton" />
 
     <Button
-        android:id="@+id/refreshStatus"
+        android:id="@+id/refreshStatusButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/refresh_status"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/doActionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activateLicenseButton" />
+
+    <Button
+        android:id="@+id/doActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/do_action"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/refreshStatusButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
