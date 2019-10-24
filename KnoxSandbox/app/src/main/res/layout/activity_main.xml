@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:text="@string/license"
-        app:layout_constraintBottom_toTopOf="@id/activateAdminButton"
+        app:layout_constraintBottom_toTopOf="@id/refreshStatusButton"
         app:layout_constraintEnd_toStartOf="@id/licenseStatus"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +58,18 @@
         tools:text="false" />
 
     <Button
+        android:id="@+id/refreshStatusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/refresh_status"
+        app:layout_constraintBottom_toTopOf="@id/activateAdminButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/licenseCaption" />
+
+    <Button
         android:id="@+id/activateAdminButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,7 +78,7 @@
         app:layout_constraintBottom_toTopOf="@id/deactivateAdminButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/licenseCaption" />
+        app:layout_constraintTop_toBottomOf="@id/refreshStatusButton" />
 
     <Button
         android:id="@+id/deactivateAdminButton"
@@ -85,21 +97,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:text="@string/activate_license"
-        app:layout_constraintBottom_toTopOf="@id/refreshStatusButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/deactivateAdminButton" />
-
-    <Button
-        android:id="@+id/refreshStatusButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="@string/refresh_status"
         app:layout_constraintBottom_toTopOf="@id/createContainerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activateLicenseButton" />
+        app:layout_constraintTop_toBottomOf="@id/deactivateAdminButton" />
 
     <Button
         android:id="@+id/createContainerButton"
@@ -110,7 +111,7 @@
         app:layout_constraintBottom_toTopOf="@id/doActionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/refreshStatusButton" />
+        app:layout_constraintTop_toBottomOf="@id/activateLicenseButton" />
 
     <Button
         android:id="@+id/doActionButton"
