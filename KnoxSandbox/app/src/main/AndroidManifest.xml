@@ -36,7 +36,9 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="ru.niisokb.mcc.framework.knox.license.KnoxLicenseReceiver">
+        <receiver
+            android:name="ru.niisokb.mcc.framework.knox.license.KnoxLicenseReceiver"
+            tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="com.samsung.android.knox.intent.action.LICENSE_STATUS" />
             </intent-filter>

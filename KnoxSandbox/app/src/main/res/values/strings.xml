@@ -3,15 +3,12 @@
 
     <!-- Admin -->
     <string name="admin">Admin</string>
-    <string name="activate_admin">Activate admin</string>
     <string name="admin_enabled">Admin enabled</string>
-    <string name="deactivate_admin">Deactivate admin</string>
     <string name="admin_disabled">Admin disabled</string>
     <string name="admin_disable_failed">Admin disable failed</string>
 
     <!-- Knox license -->
     <string name="license">License</string>
-    <string name="activate_license">Activate license</string>
     <string name="license_progress">License activation in progress</string>
     <string name="license_failed">License activation failed</string>
     <string name="no_intent">No intent available</string>
@@ -31,9 +28,19 @@
     <string name="err_klm_code_unknown">Unknown error code %1$s, status %2$s</string>
 
     <!-- Buttons -->
+    <string name="activate_admin">Activate admin</string>
+    <string name="deactivate_admin">Deactivate admin</string>
+    <string name="activate_license">Activate license</string>
     <string name="refresh_status">Refresh status</string>
+    <string name="create_container">Create container</string>
     <string name="do_action">Do action</string>
 
     <string name="data_wipe_success">Data successfully wiped for %1$s</string>
     <string name="data_wipe_failure">Failed to wipe data for %1$s</string>
+
+    <!-- Knox container -->
+    <string name="container_creation_progress">Container creation in progress</string>
+    <string name="container_creation_success">Container created successfully</string>
+    <string name="container_creation_error">Can\'t create container, error %1$d</string>
+
 </resources>

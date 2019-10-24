@@ -36,6 +36,11 @@ class MainActivity : AppCompatActivity() {
             refreshStatus(adminActivator, knoxLicenseActivator)
         }
 
+        val containerCreator = Dependencies.containerCreator
+        createContainerButton.setOnClickListener {
+            containerCreator.createContainer(this)
+        }
+
         doActionButton.setOnClickListener {
             Dependencies.wipeAppDataAction.wipeAppData(this, gmailUid)
         }
