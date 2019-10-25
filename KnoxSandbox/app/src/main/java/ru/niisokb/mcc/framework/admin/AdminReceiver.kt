@@ -1,6 +1,7 @@
 package ru.niisokb.mcc.framework.admin
 
 import android.app.admin.DeviceAdminReceiver
+import android.app.admin.DevicePolicyManager
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -24,7 +25,18 @@ class AdminReceiver : DeviceAdminReceiver() {
         showToast(context, R.string.admin_disabled)
     }
 
+    override fun onProfileProvisioningComplete(context: Context, intent: Intent) {
+        Log.d(TAG, context.getString(R.string.profile_provisioning_complete))
+        showToast(context, R.string.profile_provisioning_complete)
+        val dpm = AdminActivator.getDpm(context)
+        val admin = AdminActivator.getAdmin(context)
+        dpm.setProfileName(admin, WORK_PROFILE_NAME)
+        dpm.setProfileEnabled(admin)
+        dpm.enableSystemApp(admin, context.getString(R.string.camera_app_uid))
+    }
+
     companion object {
         private const val TAG = "AdminReceiver"
+        private const val WORK_PROFILE_NAME = "My Work Profile"
     }
 }

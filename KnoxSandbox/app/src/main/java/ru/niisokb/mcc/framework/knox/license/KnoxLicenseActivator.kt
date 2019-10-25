@@ -13,11 +13,41 @@ class KnoxLicenseActivator {
         val klm = KnoxEnterpriseLicenseManager.getInstance(context)
         runCatching {
             klm.activateLicense(kpe)
-            Log.d(TAG, context.getString(R.string.license_progress))
-            showToast(context, R.string.license_progress)
+            val message = context.getString(
+                R.string.license_status,
+                context.getString(R.string.license_activation),
+                context.getString(R.string.license_progress)
+            )
+            showToast(context, message)
         }.onFailure {
-            Log.e(TAG, "${context.getString(R.string.license_failed)}: $it")
-            showToast(context, context.getString(R.string.license_failed))
+            val message = context.getString(
+                R.string.license_status,
+                context.getString(R.string.license_activation),
+                context.getString(R.string.license_failed)
+            )
+            Log.e(TAG, "$message: $it")
+            showToast(context, message)
+        }
+    }
+
+    fun deactivateLicense(context: Context, kpe: String) {
+        val klm = KnoxEnterpriseLicenseManager.getInstance(context)
+        runCatching {
+            klm.deActivateLicense(kpe)
+            val message = context.getString(
+                R.string.license_status,
+                context.getString(R.string.license_deactivation),
+                context.getString(R.string.license_progress)
+            )
+            showToast(context, message)
+        }.onFailure {
+            val message = context.getString(
+                R.string.license_status,
+                context.getString(R.string.license_deactivation),
+                context.getString(R.string.license_failed)
+            )
+            Log.e(TAG, "$message: $it")
+            showToast(context, message)
         }
     }
 

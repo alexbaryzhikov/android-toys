@@ -6,47 +6,59 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.niisokb.mcc.di.Dependencies
 import ru.niisokb.mcc.framework.admin.AdminActivator
-import ru.niisokb.mcc.framework.knox.license.KPE1
+import ru.niisokb.mcc.framework.knox.license.KPE_KEY_1
 import ru.niisokb.mcc.framework.knox.license.KnoxLicenseActivator
 
 class MainActivity : AppCompatActivity() {
-
-    private val gmailUid = "com.google.android.gm"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Dependencies.appContext = applicationContext
+
+        Dependencies.knoxServices.checkApiLevel(this, 24)
+
         val adminActivator = Dependencies.adminActivator
         adminStatus.text = adminActivator.isAdminActive(this).toString()
+
         activateAdminButton.setOnClickListener {
             adminActivator.activateAdmin(this)
         }
+
         deactivateAdminButton.setOnClickListener {
             adminActivator.deactivateAdmin(this)
         }
 
         val knoxLicenseActivator = Dependencies.knoxLicenseActivator
         licenseStatus.text = knoxLicenseActivator.isKpeApiAccessible(this).toString()
+
         activateLicenseButton.setOnClickListener {
-            knoxLicenseActivator.activateLicense(this, KPE1)
+            knoxLicenseActivator.activateLicense(this, KPE)
+        }
+
+        deactivateLicenseButton.setOnClickListener {
+            knoxLicenseActivator.deactivateLicense(this, KPE)
         }
 
         refreshStatusButton.setOnClickListener {
-            refreshStatus(adminActivator, knoxLicenseActivator)
+            refreshPrivilegesStatus(adminActivator, knoxLicenseActivator)
         }
 
-        val containerCreator = Dependencies.containerCreator
         createContainerButton.setOnClickListener {
-            containerCreator.createContainer(this)
+            Dependencies.containerCreator.createContainer(this)
         }
 
-        doActionButton.setOnClickListener {
-            Dependencies.wipeAppDataAction.wipeAppData(this, gmailUid)
+        createWorkProfileButton.setOnClickListener {
+            Dependencies.workProfileCreator.createWorkProfile(this)
+        }
+
+        toggleContainerCameraButton.setOnClickListener {
+            Dependencies.toggleContainerCameraAction.toggleCameraState(this)
         }
     }
 
-    private fun refreshStatus(
+    private fun refreshPrivilegesStatus(
         adminActivator: AdminActivator,
         knoxLicenseActivator: KnoxLicenseActivator
     ) {
@@ -60,5 +72,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "MainActivity"
+        private const val KPE = KPE_KEY_1
     }
 }

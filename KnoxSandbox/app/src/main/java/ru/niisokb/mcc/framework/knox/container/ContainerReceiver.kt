@@ -15,9 +15,15 @@ class ContainerReceiver : BroadcastReceiver() {
     var initialRequestId: Int = -1
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        require(context != null) { "context is null" }
+        if (context == null) {
+            Log.e(TAG, "context is null")
+            return
+        }
         val extras = intent?.extras
-        require(extras != null) { "extras is null" }
+        if (extras == null) {
+            Log.e(TAG, "intent extras is null")
+            return
+        }
 
         val containerCreationRequestId = extras.getInt(CONTAINER_CREATION_REQUEST_ID, -1)
         val statusCode = extras.getInt(CONTAINER_CREATION_STATUS_CODE, ERROR_INTERNAL_ERROR)

@@ -7,13 +7,22 @@
     <string name="admin_disabled">Admin disabled</string>
     <string name="admin_disable_failed">Admin disable failed</string>
 
+    <!-- Work profile -->
+    <string name="profile_provisioning_complete">Work profile provisioning complete</string>
+    <string name="profile_provisioning_no_handler">Can\'t provision this device</string>
+
     <!-- Knox license -->
     <string name="license">License</string>
-    <string name="license_progress">License activation in progress</string>
-    <string name="license_failed">License activation failed</string>
+    <string name="license_status">License %1$s: %2$s</string>
+    <string name="license_activation">activation</string>
+    <string name="license_validation">validation</string>
+    <string name="license_deactivation">deactivation: </string>
+    <string name="license_progress">in progress</string>
+    <string name="license_failed">failed</string>
+    <string name="license_success">success</string>
     <string name="no_intent">No intent available</string>
     <string name="no_intent_action">No intent action available</string>
-    <string name="klm_activated_successfully">License activated successfully</string>
+    <string name="invalid_intent_action">Invalid intent action</string>
     <string name="err_klm_internal">Internal error</string>
     <string name="err_klm_internal_server">Server internal error</string>
     <string name="err_klm_license_invalid_license">Invalid license</string>
@@ -27,20 +36,33 @@
     <string name="err_klm_user_disagrees_license_agreement">User rejected agreement</string>
     <string name="err_klm_code_unknown">Unknown error code %1$s, status %2$s</string>
 
-    <!-- Buttons -->
-    <string name="activate_admin">Activate admin</string>
-    <string name="deactivate_admin">Deactivate admin</string>
-    <string name="activate_license">Activate license</string>
-    <string name="refresh_status">Refresh status</string>
-    <string name="create_container">Create container</string>
-    <string name="do_action">Do action</string>
-
-    <string name="data_wipe_success">Data successfully wiped for %1$s</string>
-    <string name="data_wipe_failure">Failed to wipe data for %1$s</string>
-
     <!-- Knox container -->
     <string name="container_creation_progress">Container creation in progress</string>
     <string name="container_creation_success">Container created successfully</string>
     <string name="container_creation_error">Can\'t create container, error %1$d</string>
+
+    <!-- Buttons -->
+    <string name="activate_admin">Activate admin</string>
+    <string name="deactivate_admin">Deactivate admin</string>
+    <string name="activate_license">Activate license</string>
+    <string name="deactivate_license">Deactivate license</string>
+    <string name="refresh_status">Refresh status</string>
+    <string name="create_container">Create container</string>
+    <string name="create_work_profile">Create work profile</string>
+    <string name="toggle_container_camera">Toggle container camera (DPM API)</string>
+    <string name="wipe_gmail_data">Wipe Gmail data</string>
+
+    <!-- Actions -->
+    <string name="data_wipe_success">Data successfully wiped for %1$s</string>
+    <string name="data_wipe_failure">Failed to wipe data for %1$s</string>
+    <string name="toggle_camera_success">Container camera state changed</string>
+    <string name="toggle_camera_failure">Failed to change container camera state</string>
+
+    <!-- Apps package names -->
+    <string name="gmail_uid">"com.google.android.gm"</string>
+    <string name="camera_app_uid">com.sec.android.app.camera</string>
+
+    <!-- Dialogs -->
+    <string name="knox_api_level_message">Knox API level is %1%d, minimum required %2$d</string>
 
 </resources>

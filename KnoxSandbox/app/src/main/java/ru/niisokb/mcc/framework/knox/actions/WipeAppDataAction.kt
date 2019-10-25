@@ -2,29 +2,26 @@ package ru.niisokb.mcc.framework.knox.actions
 
 import android.content.Context
 import android.util.Log
-import com.samsung.android.knox.EnterpriseDeviceManager
 import ru.niisokb.mcc.R
+import ru.niisokb.mcc.framework.knox.KnoxServices
 import ru.niisokb.mcc.framework.utils.showToast
 
-class WipeAppDataAction {
+class WipeAppDataAction(private val knoxServices: KnoxServices) {
 
     fun wipeAppData(context: Context, packageName: String) {
-        val edm = EnterpriseDeviceManager.getInstance(context)
-        val ap = edm.applicationPolicy
+        val applicationPolicy = knoxServices.getEdm(context).applicationPolicy
         runCatching { 
-            val result = ap.wipeApplicationData(packageName)
+            val result = applicationPolicy.wipeApplicationData(packageName)
             if (result) {
                 val msg = context.getString(R.string.data_wipe_success, packageName)
-                Log.d(TAG, msg)
                 showToast(context, msg)
             } else {
                 val msg = context.getString(R.string.data_wipe_failure, packageName)
-                Log.d(TAG, msg)
                 showToast(context, msg)
             }
         }.onFailure {
             val msg = context.getString(R.string.data_wipe_failure, packageName)
-            Log.d(TAG, "$msg: $it")
+            Log.e(TAG, "$msg: $it")
             showToast(context, msg)
         }
     }

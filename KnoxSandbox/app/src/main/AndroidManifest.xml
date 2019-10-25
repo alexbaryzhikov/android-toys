@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ru.niisokb.mcc">
 
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_HW_CONTROL" />
     <uses-permission android:name="com.samsung.android.knox.permission.KNOX_APP_MGMT" />
+    <uses-permission android:name="com.samsung.android.knox.permission.KNOX_CONTAINER" />
 
     <application
         android:allowBackup="false"
