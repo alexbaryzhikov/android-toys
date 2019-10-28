@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.niisokb.mcc.di.Dependencies
 import ru.niisokb.mcc.framework.admin.AdminActivator
-import ru.niisokb.mcc.framework.knox.license.KPE_KEY_1
+import ru.niisokb.mcc.framework.knox.license.*
 import ru.niisokb.mcc.framework.knox.license.KnoxLicenseActivator
 
 class MainActivity : AppCompatActivity() {
@@ -16,33 +16,31 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Dependencies.appContext = applicationContext
-
         Dependencies.knoxServices.checkApiLevel(this, 24)
-
-        val adminActivator = Dependencies.adminActivator
-        adminStatus.text = adminActivator.isAdminActive(this).toString()
+        refreshPrivilegesStatus(Dependencies.adminActivator, Dependencies.knoxLicenseActivator)
 
         activateAdminButton.setOnClickListener {
-            adminActivator.activateAdmin(this)
+            Dependencies.adminActivator.activateAdmin(this)
         }
 
         deactivateAdminButton.setOnClickListener {
-            adminActivator.deactivateAdmin(this)
+            Dependencies.adminActivator.deactivateAdmin(this)
         }
 
-        val knoxLicenseActivator = Dependencies.knoxLicenseActivator
-        licenseStatus.text = knoxLicenseActivator.isKpeApiAccessible(this).toString()
+        activatePremiumLicenseButton.setOnClickListener {
+            Dependencies.knoxLicenseActivator.activateLicense(this, KPE_DEVELOP)
+        }
 
-        activateLicenseButton.setOnClickListener {
-            knoxLicenseActivator.activateLicense(this, KPE)
+        activateStandardLicenseButton.setOnClickListener {
+            Dependencies.knoxLicenseActivator.activateLicense(this, KPE_STANDARD)
         }
 
         deactivateLicenseButton.setOnClickListener {
-            knoxLicenseActivator.deactivateLicense(this, KPE)
+            Dependencies.knoxLicenseActivator.deactivateLicense(this)
         }
 
         refreshStatusButton.setOnClickListener {
-            refreshPrivilegesStatus(adminActivator, knoxLicenseActivator)
+            refreshPrivilegesStatus(Dependencies.adminActivator, Dependencies.knoxLicenseActivator)
         }
 
         createContainerButton.setOnClickListener {
@@ -68,10 +66,12 @@ class MainActivity : AppCompatActivity() {
         val kpeApiAccessible = knoxLicenseActivator.isKpeApiAccessible(this)
         Log.d(TAG, "kpeApiAccessible = $kpeApiAccessible")
         licenseStatus.text = kpeApiAccessible.toString()
+        val ownerActive = adminActivator.isOwnerActive(this)
+        Log.d(TAG, "ownerActive = $ownerActive")
+        ownerStatus.text = ownerActive.toString()
     }
 
     companion object {
         private const val TAG = "MainActivity"
-        private const val KPE = KPE_KEY_1
     }
 }

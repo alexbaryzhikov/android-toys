@@ -1,8 +1,10 @@
 package ru.niisokb.mcc.di
 
 import android.content.Context
+import ru.niisokb.mcc.data.SharedPreferencesDataSourceImpl
 import ru.niisokb.mcc.framework.admin.AdminActivator
 import ru.niisokb.mcc.framework.dpm.workprofile.WorkProfileCreator
+import ru.niisokb.mcc.framework.interfaces.SharedPreferencesDataSource
 import ru.niisokb.mcc.framework.knox.KnoxServices
 import ru.niisokb.mcc.framework.knox.actions.ToggleContainerCameraAction
 import ru.niisokb.mcc.framework.knox.actions.WipeAppDataAction
@@ -15,7 +17,9 @@ object Dependencies {
 
     val adminActivator: AdminActivator by lazy { AdminActivator() }
 
-    val knoxLicenseActivator: KnoxLicenseActivator by lazy { KnoxLicenseActivator() }
+    val knoxLicenseActivator: KnoxLicenseActivator by lazy {
+        KnoxLicenseActivator(sharedPreferencesDataSource)
+    }
 
     val containerCreator: ContainerCreator by lazy { ContainerCreator() }
 
@@ -27,5 +31,9 @@ object Dependencies {
 
     val toggleContainerCameraAction: ToggleContainerCameraAction by lazy {
         ToggleContainerCameraAction(knoxServices)
+    }
+
+    private val sharedPreferencesDataSource: SharedPreferencesDataSource by lazy {
+        SharedPreferencesDataSourceImpl()
     }
 }

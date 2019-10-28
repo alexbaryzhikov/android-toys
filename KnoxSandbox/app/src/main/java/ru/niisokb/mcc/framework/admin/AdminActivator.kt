@@ -32,6 +32,12 @@ class AdminActivator {
         return getDpm(context).isAdminActive(getAdmin(context))
     }
 
+    fun isOwnerActive(context: Context): Boolean {
+        val dpm = getDpm(context)
+        return dpm.isDeviceOwnerApp(context.packageName) ||
+                dpm.isProfileOwnerApp(context.packageName)
+    }
+
     companion object {
 
         private const val TAG = "AdminActivator"

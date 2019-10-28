@@ -7,16 +7,19 @@
     <string name="admin_disabled">Admin disabled</string>
     <string name="admin_disable_failed">Admin disable failed</string>
 
+    <!-- Owner -->
+    <string name="owner">Device/Profile Owner</string>
+
     <!-- Work profile -->
     <string name="profile_provisioning_complete">Work profile provisioning complete</string>
     <string name="profile_provisioning_no_handler">Can\'t provision this device</string>
 
     <!-- Knox license -->
-    <string name="license">License</string>
+    <string name="license">Knox License</string>
     <string name="license_status">License %1$s: %2$s</string>
     <string name="license_activation">activation</string>
     <string name="license_validation">validation</string>
-    <string name="license_deactivation">deactivation: </string>
+    <string name="license_deactivation">deactivation</string>
     <string name="license_progress">in progress</string>
     <string name="license_failed">failed</string>
     <string name="license_success">success</string>
@@ -44,7 +47,8 @@
     <!-- Buttons -->
     <string name="activate_admin">Activate admin</string>
     <string name="deactivate_admin">Deactivate admin</string>
-    <string name="activate_license">Activate license</string>
+    <string name="activate_premium_license">Activate premium license</string>
+    <string name="activate_standard_license">Activate standard license</string>
     <string name="deactivate_license">Deactivate license</string>
     <string name="refresh_status">Refresh status</string>
     <string name="create_container">Create container</string>

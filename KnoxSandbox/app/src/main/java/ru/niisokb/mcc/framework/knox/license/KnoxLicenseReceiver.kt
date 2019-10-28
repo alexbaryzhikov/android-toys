@@ -11,6 +11,7 @@ import ru.niisokb.mcc.framework.utils.showToast
 class KnoxLicenseReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent?) {
+        Log.v(TAG, "onReceive called")
         if (intent == null) {
             showToast(context, R.string.no_intent)
             return
@@ -48,6 +49,7 @@ class KnoxLicenseReceiver : BroadcastReceiver() {
                 context.getString(R.string.license_success)
             )
             showToast(context, message)
+            Log.d(TAG, message)
         } else {
             // License action failed.
             val msgResId = when (errorCode) {
@@ -93,14 +95,9 @@ class KnoxLicenseReceiver : BroadcastReceiver() {
         val status = getStringExtra(EXTRA_LICENSE_STATUS)
         val errorCode =
             getIntExtra(EXTRA_LICENSE_ERROR_CODE, NO_ERROR_CODE)
-        val extraResultType =
-            getIntExtra(EXTRA_LICENSE_RESULT_TYPE, NO_RESULT_TYPE)
-        Log.d(
-            TAG,
-            "KLM status = $status" +
-                    ", errorCode = $errorCode" +
-                    ", extraResultType = ${resultTypeString(extraResultType)}"
-        )
+        val resultType =
+            resultTypeString(getIntExtra(EXTRA_LICENSE_RESULT_TYPE, NO_RESULT_TYPE))
+        Log.d(TAG, "KLM status = $status, errorCode = $errorCode, resultType = $resultType")
     }
 
     private fun resultTypeString(type: Int): String {
