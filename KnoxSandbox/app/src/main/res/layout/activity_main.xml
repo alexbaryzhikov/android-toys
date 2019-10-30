@@ -113,10 +113,21 @@
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginBottom="@dimen/margin_big"
             android:text="@string/deactivate_admin"
-            app:layout_constraintBottom_toTopOf="@id/activatePremiumLicenseButton"
+            app:layout_constraintBottom_toTopOf="@id/activateDeveloperLicenseButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activateAdminButton" />
+
+        <Button
+            android:id="@+id/activateDeveloperLicenseButton"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:text="@string/activate_developer_license"
+            app:layout_constraintBottom_toTopOf="@id/activatePremiumLicenseButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deactivateAdminButton" />
 
         <Button
             android:id="@+id/activatePremiumLicenseButton"
@@ -127,7 +138,7 @@
             app:layout_constraintBottom_toTopOf="@id/activateStandardLicenseButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/deactivateAdminButton" />
+            app:layout_constraintTop_toBottomOf="@id/activateDeveloperLicenseButton" />
 
         <Button
             android:id="@+id/activateStandardLicenseButton"

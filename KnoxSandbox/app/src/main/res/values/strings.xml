@@ -47,6 +47,7 @@
     <!-- Buttons -->
     <string name="activate_admin">Activate admin</string>
     <string name="deactivate_admin">Deactivate admin</string>
+    <string name="activate_developer_license">Activate developer license</string>
     <string name="activate_premium_license">Activate premium license</string>
     <string name="activate_standard_license">Activate standard license</string>
     <string name="deactivate_license">Deactivate license</string>
