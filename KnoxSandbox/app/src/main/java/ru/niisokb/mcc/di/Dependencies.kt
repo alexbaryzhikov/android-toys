@@ -1,8 +1,11 @@
 package ru.niisokb.mcc.di
 
 import android.content.Context
+import android.os.Build
 import ru.niisokb.mcc.data.SharedPreferencesDataSourceImpl
 import ru.niisokb.mcc.framework.admin.AdminActivator
+import ru.niisokb.mcc.framework.dpm.DpmServices
+import ru.niisokb.mcc.framework.dpm.actions.SetPackageSuspendedAction
 import ru.niisokb.mcc.framework.dpm.workprofile.WorkProfileCreator
 import ru.niisokb.mcc.framework.interfaces.SharedPreferencesDataSource
 import ru.niisokb.mcc.framework.knox.KnoxServices
@@ -15,7 +18,9 @@ object Dependencies {
 
     lateinit var appContext: Context
 
-    val adminActivator: AdminActivator by lazy { AdminActivator() }
+    val dpmServices: DpmServices by lazy { DpmServices() }
+
+    val adminActivator: AdminActivator by lazy { AdminActivator(dpmServices) }
 
     val knoxLicenseActivator: KnoxLicenseActivator by lazy {
         KnoxLicenseActivator(sharedPreferencesDataSource)
@@ -31,6 +36,14 @@ object Dependencies {
 
     val toggleContainerCameraAction: ToggleContainerCameraAction by lazy {
         ToggleContainerCameraAction(knoxServices)
+    }
+
+    val setPackageSuspendedAction: SetPackageSuspendedAction? by lazy {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            SetPackageSuspendedAction(dpmServices)
+        } else {
+            null
+        }
     }
 
     private val sharedPreferencesDataSource: SharedPreferencesDataSource by lazy {

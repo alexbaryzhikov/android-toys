@@ -1,12 +1,14 @@
 package ru.niisokb.mcc
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.niisokb.mcc.di.Dependencies
 import ru.niisokb.mcc.framework.admin.AdminActivator
-import ru.niisokb.mcc.framework.knox.license.*
+import ru.niisokb.mcc.framework.knox.license.KPE_DEVELOP
+import ru.niisokb.mcc.framework.knox.license.KPE_STANDARD
 import ru.niisokb.mcc.framework.knox.license.KnoxLicenseActivator
 
 class MainActivity : AppCompatActivity() {
@@ -53,6 +55,12 @@ class MainActivity : AppCompatActivity() {
 
         toggleContainerCameraButton.setOnClickListener {
             Dependencies.toggleContainerCameraAction.toggleCameraState(this)
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            suspendAppButton.setOnClickListener {
+                Dependencies.setPackageSuspendedAction?.suspendApp(this)
+            }
         }
     }
 
