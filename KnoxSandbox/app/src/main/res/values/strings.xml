@@ -55,6 +55,7 @@
     <string name="create_container">Create container</string>
     <string name="create_work_profile">Create work profile</string>
     <string name="toggle_container_camera">Toggle container camera (DPM API)</string>
+    <string name="suspend_application">Suspend application</string>
     <string name="wipe_gmail_data">Wipe Gmail data</string>
 
     <!-- Actions -->
