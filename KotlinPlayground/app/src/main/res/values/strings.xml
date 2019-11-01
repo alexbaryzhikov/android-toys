@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">Kotlin Playground</string>
-    <string name="coroutine_text">Hello from coroutine!</string>
-    <string name="sequential_text">Back to sequential</string>
-</resources>
