@@ -74,4 +74,6 @@ class KnoxLicenseActivator(private val sharedPreferencesDataSource: SharedPrefer
         private const val TAG = "KnoxLicenseActivator"
         private const val LAST_KPE_KEY = "last_kpe_key"
     }
+
+    // TODO(alexb) register/unregister receiver
 }

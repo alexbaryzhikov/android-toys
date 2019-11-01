@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             Dependencies.knoxLicenseActivator.activateLicense(this, KPE_DEVELOP)
         }
 
+        activateDeveloperLicenseButton.setOnClickListener {
+            Dependencies.knoxLicenseActivator.activateLicense(this, KPE_PREMIUM)
+        }
+
         activateStandardLicenseButton.setOnClickListener {
             Dependencies.knoxLicenseActivator.activateLicense(this, KPE_STANDARD)
         }
